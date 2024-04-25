@@ -1,6 +1,5 @@
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ConversationHandler, CommandHandler, ContextTypes, MessageHandler, filters, \
-    CallbackQueryHandler
+from telegram.ext import ConversationHandler, CommandHandler, ContextTypes, MessageHandler, filters, CallbackQueryHandler
 
 from handlers.base_handler import BaseHandler
 
@@ -74,7 +73,7 @@ class FirstConversationHandler(BaseHandler):
         await query.answer()
 
         age = query.data
-        context.user_data['age'] = age
+        context.user_data['round'] = age
 
         await query.edit_message_text(text=f"You are {context.user_data["gender"]}. Your age is {context.user_data['age']} years old.", reply_markup=ReplyKeyboardRemove())
 
